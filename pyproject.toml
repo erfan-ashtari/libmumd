@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "libmumd"
-version = "0.1.0"
+version = "0.1.1"
 description = "Convert documents (Office, PDF) to Markdown — optimized for Persian/Farsi and multilingual content"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.8"
 authors = [
-    {name = "Erfan Ashtari", email = "erfan.ashtari@gmail.com"},
+    {name = "Erfan Ashtari"},
 ]
 keywords = ["markdown", "pdf", "document-conversion", "persian", "farsi", "llm"]
 classifiers = [
