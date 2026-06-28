@@ -16,8 +16,9 @@
 
 Most document converters produce messy output — broken tables, lost formatting, garbled non-English text. **libmumd** is different:
 
+- **Persian & Arabic first-class support** — Correctly handles RTL text, Persian typography, and Arabic script
 - **Better than markitdown alone** — Uses PyMuPDF's layout engine for cleaner, more accurate conversion
-- **Multi-language support** — Handles Arabic, Chinese, Japanese, Korean, and European languages correctly
+- **Multi-language support** — Handles Persian, Arabic, Chinese, Japanese, Korean, and European languages
 - **Table detection** — Automatically converts complex tables to Markdown format
 - **Figure & image handling** — Extracts and references images properly
 - **Layout-aware** — Preserves reading order, headers, and document structure
@@ -118,6 +119,24 @@ Or download from [libreoffice.org](https://www.libreoffice.org/).
 | Layout preservation | None | Reading order preserved |
 | Image handling | Limited | Extracted and referenced |
 | Header detection | None | Automatic heading levels |
+
+## Persian (Farsi) & Arabic Support
+
+libmumd is built with **Persian and Arabic documents in mind**:
+
+- **RTL text handling** — Correctly processes right-to-left text
+- **Persian typography** — Preserves proper character connections and diacritics
+- **Mixed content** — Handles documents with both Persian/Arabic and English text
+- **PDF extraction** — Extracts Persian text without garbling or losing characters
+- **Font support** — Works with Persian fonts like IRANSans, Vazirmatn, and more
+
+```python
+from libmumd import convert_file
+
+# Convert a Persian PDF document
+result = convert_file("persian-document.pdf")
+# Output preserves RTL text and Persian characters correctly
+```
 
 ## Contributing
 

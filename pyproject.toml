@@ -5,10 +5,29 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "libmumd"
 version = "0.1.0"
-description = "Convert documents (Office, PDF) to Markdown"
+description = "Convert documents (Office, PDF) to Markdown — optimized for Persian/Farsi and multilingual content"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.8"
+authors = [
+    {name = "Erfan Ashtari", email = "erfan.ashtari@gmail.com"},
+]
+keywords = ["markdown", "pdf", "document-conversion", "persian", "farsi", "llm"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Text Processing :: Markup :: Markdown",
+    "Topic :: Utilities",
+]
 dependencies = [
     "pymupdf4llm",
     "markitdown",
@@ -21,6 +40,11 @@ dev = [
 
 [project.scripts]
 libmumd = "libmumd.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/erfan-ashtari/libmumd"
+Repository = "https://github.com/erfan-ashtari/libmumd"
+Issues = "https://github.com/erfan-ashtari/libmumd/issues"
 
 [tool.setuptools.packages.find]
 include = ["libmumd*"]
