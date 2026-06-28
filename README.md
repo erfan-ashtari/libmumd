@@ -133,6 +133,14 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
+### Dependency Licenses
+
+- **pymupdf4llm** — [AGPL-3.0](https://github.com/pymupdf/pymupdf4llm/blob/main/LICENSE) (required for PDF conversion)
+- **markitdown** — MIT
+- **LibreOffice** — [MPL-2.0](https://www.libreoffice.org/license/mpl-2.0/)
+
+Users of this package must comply with the AGPL-3.0 license for pymupdf4llm.
+
 ## Acknowledgments
 
 - [PyMuPDF4LLM](https://github.com/pymupdf/pymupdf4llm) — PDF extraction engine
