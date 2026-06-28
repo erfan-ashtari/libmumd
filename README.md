@@ -40,15 +40,13 @@ Most document converters produce messy output — broken tables, lost formatting
 ## Installation
 
 ```bash
-pip install git+https://github.com/erfan-ashtari/libmumd.git
+pip install libmumd
 ```
 
-Or install from source:
+Or install from GitHub:
 
 ```bash
-git clone https://github.com/erfan-ashtari/libmumd.git
-cd libmumd
-pip install .
+pip install git+https://github.com/erfan-ashtari/libmumd.git
 ```
 
 ## Quick Start
