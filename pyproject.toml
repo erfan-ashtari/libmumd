@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "libmumd"
+version = "0.1.0"
+description = "Convert documents (Office, PDF) to Markdown"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+dependencies = [
+    "pymupdf4llm",
+    "markitdown",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[project.scripts]
+libmumd = "libmumd.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["libmumd*"]
