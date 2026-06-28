@@ -7,6 +7,8 @@
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![GitHub release](https://img.shields.io/github/v/release/erfan-ashtari/libmumd)](https://github.com/erfan-ashtari/libmumd/releases)
+[![PyPI](https://img.shields.io/pypi/v/libmumd.svg)](https://pypi.org/project/libmumd/)
+[![Downloads](https://img.shields.io/pypi/dm/libmumd.svg)](https://pypi.org/project/libmumd/)
 
 </div>
 
