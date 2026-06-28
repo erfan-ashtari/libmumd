@@ -2,7 +2,7 @@
 
 # libmumd
 
-**Convert documents to Markdown with ease.**
+**Convert documents to clean, LLM-ready Markdown.**
 
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -12,13 +12,29 @@
 
 ---
 
+## Why libmumd?
+
+Most document converters produce messy output — broken tables, lost formatting, garbled non-English text. **libmumd** is different:
+
+- **Better than markitdown alone** — Uses PyMuPDF's layout engine for cleaner, more accurate conversion
+- **Multi-language support** — Handles Arabic, Chinese, Japanese, Korean, and European languages correctly
+- **Table detection** — Automatically converts complex tables to Markdown format
+- **Figure & image handling** — Extracts and references images properly
+- **Layout-aware** — Preserves reading order, headers, and document structure
+- **No GPU required** — Runs on any machine with Python
+
 ## Features
 
-- **PDF to Markdown** — High-quality conversion using PyMuPDF
-- **Office to Markdown** — Convert `.docx`, `.pptx`, `.xlsx`, and more
-- **CLI & Library** — Use as a command-line tool or import in your Python code
-- **Cross-platform** — Works on Windows, macOS, and Linux
-- **Fallback support** — Uses `markitdown` when LibreOffice is unavailable
+| Feature | Description |
+|---------|-------------|
+| **PDF → Markdown** | High-quality extraction with layout preservation |
+| **Office → Markdown** | Convert `.docx`, `.pptx`, `.xlsx`, and more via LibreOffice |
+| **Smart table parsing** | Complex tables become clean Markdown tables |
+| **Image extraction** | Embedded images are saved and referenced |
+| **Header detection** | Font sizes map to `#` heading levels automatically |
+| **Inline formatting** | Preserves **bold**, *italic*, and `code` |
+| **Multi-column layouts** | Reconstructs natural reading order |
+| **OCR fallback** | Handles scanned documents when text layer is missing |
 
 ## Installation
 
@@ -42,8 +58,8 @@ pip install .
 # Convert PDF to Markdown
 libmumd document.pdf
 
-# Specify output file
-libmumd document.docx output.md
+# Convert Office document
+libmumd report.docx output.md
 ```
 
 ### Python
@@ -52,8 +68,9 @@ libmumd document.docx output.md
 from libmumd import convert_file
 
 # Basic usage
-result = convert_file("report.pdf")
-print(result)  # {'status': 'ok', 'chars': 1234, 'output': 'report.md'}
+result = convert_file("document.pdf")
+print(result)
+# {'status': 'ok', 'chars': 4523, 'output': 'document.md'}
 
 # Custom output path
 result = convert_file("presentation.pptx", "slides.md")
@@ -61,36 +78,46 @@ result = convert_file("presentation.pptx", "slides.md")
 
 ## Supported Formats
 
-| Format | Extension | Method |
-|--------|-----------|--------|
-| PDF | `.pdf` | PyMuPDF |
+| Format | Extensions | Conversion Method |
+|--------|------------|-------------------|
+| PDF | `.pdf` | PyMuPDF (native) |
 | Word | `.docx`, `.doc` | LibreOffice |
 | PowerPoint | `.pptx`, `.ppt` | LibreOffice |
 | Excel | `.xlsx`, `.xls` | LibreOffice |
 | OpenDocument | `.odt`, `.odp`, `.ods` | LibreOffice |
 | Rich Text | `.rtf` | LibreOffice |
-| Other | * | markitdown |
+| Other | Any | markitdown fallback |
 
 ## Requirements
 
 ### Python Packages (Auto-installed)
 
-- `pymupdf4llm` — PDF conversion
+- `pymupdf4llm` — PDF extraction engine
 - `markitdown` — Fallback converter
 
-### LibreOffice (Manual Install)
+### LibreOffice (Required for Office Files)
 
-LibreOffice is required for Office document conversion.
+LibreOffice is needed to convert Word, PowerPoint, and Excel files.
 
-| OS | Command |
-|----|---------|
+| OS | Installation |
+|----|--------------|
 | **Windows** | `winget install --id TheDocumentFoundation.LibreOffice` |
 | **macOS** | `brew install --cask libreoffice` |
 | **Linux** | `sudo apt-get install libreoffice` |
 
-Or download manually from [libreoffice.org](https://www.libreoffice.org/).
+Or download from [libreoffice.org](https://www.libreoffice.org/).
 
-> **Note:** The package will attempt to auto-install LibreOffice if missing, but manual installation is recommended.
+> **Note:** PDF conversion works without LibreOffice. Only Office document conversion requires it.
+
+## Output Quality Comparison
+
+| Aspect | markitdown only | libmumd |
+|--------|-----------------|---------|
+| Table formatting | Inconsistent | Clean Markdown tables |
+| Multi-language | Basic | Full Unicode support |
+| Layout preservation | None | Reading order preserved |
+| Image handling | Limited | Extracted and referenced |
+| Header detection | None | Automatic heading levels |
 
 ## Contributing
 
@@ -108,6 +135,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ## Acknowledgments
 
-- [PyMuPDF](https://pymupdf.readthedocs.io/) — PDF processing
-- [markitdown](https://github.com/microsoft/markitdown) — Document conversion
+- [PyMuPDF4LLM](https://github.com/pymupdf/pymupdf4llm) — PDF extraction engine
+- [markitdown](https://github.com/microsoft/markitdown) — Fallback converter
 - [LibreOffice](https://www.libreoffice.org/) — Office document handling
